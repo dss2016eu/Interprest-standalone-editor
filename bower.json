@@ -1,0 +1,30 @@
+{
+  "name": "standalone",
+  "authors": [
+    "jimakker <jimakker@talaios.net>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.0",
+    "angular-indexedDB": "angular-indexed-db#~1.1.3",
+    "angular-material": "~1.0.2",
+    "angular-file-upload": "~2.2.0",
+    "blob-util": "~1.2.0",
+    "angular-ui-router": "^0.2.18",
+    "sql.js": "*"
+  },
+  "resolutions": {
+    "angular": "1.5.0"
+  }
+}

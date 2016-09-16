@@ -1,0 +1,41 @@
+<div ng-cloak>
+<md-content>
+  <form>
+    <div layout="row" layout-xs="column">
+      <div flex>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="{{language.code.toUpperCase()}}" ng-repeat="language in vm.languages">
+            <md-content class="md-padding">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label>Title</label>
+                <input ng-model="vm.post.data[language.code].title">
+              </md-input-container>
+              <md-input-container class="md-block">
+                <label>Description</label>
+                <textarea ng-model="vm.post.data[language.code].description" columns="1" md-maxlength="150" rows="4"></textarea>
+              </md-input-container>
+
+          </md-tab>
+        </md-tabs>
+      </div>
+      <div flex>
+        <div layout="row" layout-margin>
+          <div flex="60">
+            <div ng-show="vm.postImage">
+              <md-button  ng-click="vm.removeImage($event);">REMOVE</md-buton>
+            </div>
+            <div ng-show="!vm.postImage">
+              <md-button  ng-click="vm.showImagesModal($event);">SELECT IMAGE</md-buton>
+            </div>
+          </div>
+          <div flex="40" ng-if="vm.postImage">
+            <div
+            style="max-width:100%;"
+            ng-thumb="{ file: vm.postImage.file, width: 220 }"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</md-content>
+</div>

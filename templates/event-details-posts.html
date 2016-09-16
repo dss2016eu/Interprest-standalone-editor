@@ -1,0 +1,20 @@
+<div layout="column" flex layout-fill ng-cloak>
+    <md-content>
+      <md-list>
+        <md-list-item ng-click="vm.openEventDetails(event.id, $event)"
+          class="md-2-line"
+          ng-repeat="post in vm.event.posts">
+          <md-icon md-svg-icon="image" ng-if="post.image"></md-icon>
+          <md-icon md-svg-icon="text" ng-if="!post.image"></md-icon>
+          <div class="md-list-item-text">
+            <h3>{{ post.data[vm.viewLanguage].title }}</h3>
+            <p>{{ post.data[vm.viewLanguage].description }}</p>
+          </div>
+          <md-icon class="md-secondary"
+            ng-click="vm.editPost($event, post)"
+            aria-label="Edit Post"
+            md-svg-icon="edit"></md-icon>
+        </md-list-item>
+      </md-list>
+    </md-content>
+</div>

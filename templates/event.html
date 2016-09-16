@@ -1,0 +1,24 @@
+<div layout="column" flex layout-fill ng-cloak>
+    <md-toolbar  class="md-primary md-hue-1" md-scroll-shrink>
+      <div class="md-toolbar-tools">
+        My Events
+        <span flex></span>
+        <md-button  aria-label="New Event" ng-click="vm.newEvent($event)">
+         NEW
+       </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-content style="height:calc(100% - 136px);">
+    <md-list>
+      <md-list-item ng-click="vm.openEventDetails(event.id, $event)"
+        class="md-2-line"
+        ng-repeat="event in vm.events">
+        <div class="md-list-item-text">
+          <h3>{{ event.title }}</h3>
+          <p>{{ event.description }}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>

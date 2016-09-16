@@ -1,0 +1,92 @@
+<md-dialog aria-label="Images"  ng-cloak style="{{ vm.customFullscreen ? '' : 'min-width:840px;min-height:600px;' }}">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Images</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.cancel()">
+          <md-icon md-svg-icon="cancel" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content >
+
+
+    <div layout="row" layout-margin ng-if="vm.selectedImage">
+      <div flex="40">
+        <div
+        style="max-width:100%;"
+        ng-show="vm.uploader.isHTML5"
+        ng-thumb="{ file: vm.selectedImage.file, width: 220 }"></div>
+      </div>
+      <div flex="60">
+        <md-input-container class="md-block">
+          <label>Image Title</label>
+          <input ng-init="newTitle=vm.selectedImage.title.toString()" ng-model="newTitle">
+        </md-input-group>
+        <p>{{vm.selectedImage.type}}</p>
+        <md-button  aria-label="Insert Image" ng-click="vm.insertImage()">
+          INSERT INTO POST
+        </md-button>
+        <md-button  aria-label="Delete Image" ng-click="vm.selectedImage.delete();vm.selectedImage=null;">
+          DELETE
+        </md-button>
+        <md-button  aria-label="Save Image" ng-click="vm.selectedImage.title=newTitle;vm.selectedImage.save()">
+          SAVE
+        </md-button>
+        <md-button ng-click="vm.selectedImage=null;">CANCEL</md-button>
+      </div>
+    </div>
+
+
+      <div>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Upload">
+            <md-content class="md-padding">
+              <input ng-hide="vm.uploader.queue.length" type="file" nv-file-select="" uploader="vm.uploader" />
+              Max 200KB
+              <md-input-container ng-show="vm.uploader.queue.length" class="md-block" flex-gt-sm>
+                <label>Image Title</label>
+                <input ng-model="vm.newImage.title">
+                <md-button  aria-label="Save Image" ng-click="vm.saveImage()">
+                  SAVE
+                </md-button>
+                <md-button  aria-label="Cancel" ng-click="vm.cancelImage()">
+                  CANCEL
+                </md-button>
+              </md-input-container>
+
+              <div ng-repeat="item in vm.uploader.queue">
+                <div
+                style="max-width:100%;"
+                ng-show="vm.uploader.isHTML5"
+                ng-thumb="{ file: item._file, width: 880 }"></div>
+              </div>
+
+            </md-content>
+          </md-tab>
+          <md-tab label="Gallery">
+            <md-content class="md-padding">
+              <md-grid-list
+              md-cols-xs="4" md-cols-sm="4" md-cols-md="4" md-cols-gt-md="6"
+              md-row-height-gt-md="1:1" md-row-height="2:2"
+              md-gutter="12px" md-gutter-gt-sm="8px" >
+                <md-grid-tile ng-repeat="image in vm.images"
+                    md-rowspan="1" md-colspan="1" md-colspan-sm="1"
+                    ng-click="vm.selectImage(image);;">
+                  <div
+                    style="max-width:100%;"
+                    ng-show="vm.uploader.isHTML5"
+                    ng-thumb="{ file: image.file, height: 75 }"></div>
+                  <md-grid-tile-footer>
+                    <h3>{{image.title}}</h3>
+                  </md-grid-tile-footer>
+                </md-grid-tile>
+              </md-grid-list>
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

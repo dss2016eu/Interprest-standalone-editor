@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="interprestStandalone">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+
+    <base href="/">
+
+    <title>Interprest Editor</title>
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
+
+  </head>
+  <body layout="row" ng-controller="MainCtrl as main" ng-cloak>
+
+  <md-sidenav
+    class="site-sidenav md-sidenav-left md-whiteframe-z2"
+    md-component-id="left"
+    md-is-locked-open="$mdMedia('gt-sm')">
+
+    <md-toolbar class="md-whiteframe-z1">
+      <h1>Menu</h1>
+    </md-toolbar>
+
+    <md-list>
+      <md-list-item>
+          <md-button ui-sref="main.home" ng-class="{ 'selected' : 'main.home' === main.selected }">
+            <md-icon md-svg-icon="home"></md-icon>
+            Home
+          </md-button>
+      </md-list-item>
+
+      <md-list-item>
+          <md-button ui-sref="main.event" ng-class="{ 'selected' : 'main.event' === main.selected }">
+            <md-icon md-svg-icon="home"></md-icon>
+            Events
+          </md-button>
+      </md-list-item>
+    </md-list>
+
+  </md-sidenav>
+
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <md-button class="menu" hide-gt-sm ng-click="main.toggleSideNav()" aria-label="Show Main navigation">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1>Interprest Editor</h1>
+    </md-toolbar>
+
+    <md-content flex >
+        <div ui-view=""></div>
+    </md-content>
+
+  </div>
+
+
+    <!-- JS -->
+    <script src="bower_components/sql.js/js/sql.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-indexedDB/angular-indexed-db.js"></script>
+    <script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/blob-util/dist/blob-util.min.js"></script>
+
+    <script src="js/index.js"></script>
+
+    <script src="js/controllers/index.js"></script>
+    <script src="js/controllers/main.js"></script>
+    <script src="js/controllers/home.js"></script>
+    <script src="js/controllers/event.js"></script>
+    <script src="js/controllers/post.js"></script>
+    <script src="js/controllers/image.js"></script>
+
+    <script src="js/models/index.js"></script>
+    <script src="js/models/event.js"></script>
+    <script src="js/models/post.js"></script>
+    <script src="js/models/image.js"></script>
+
+    <script src="js/services/index.js"></script>
+    <script src="js/services/store.js"></script>
+    <script src="js/services/exporter.js"></script>
+    <script src="js/services/languages.js"></script>
+
+  </body>
+</html>
