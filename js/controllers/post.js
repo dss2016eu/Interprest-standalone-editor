@@ -44,7 +44,7 @@
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
         $mdDialog.show({
           controller: 'ImageCtrl as vm',
-          templateUrl: '/templates/image-dialog.html',
+          templateUrl: 'templates/image-dialog.html',
           parent: angular.element(document.body),
           targetEvent: ev,
           clickOutsideToClose:true,
