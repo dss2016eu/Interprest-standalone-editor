@@ -12,7 +12,7 @@ pages:
   - bower install --allow-root
   - mkdir public
   - sed -i 's|base\ href=\"/\"|base\ href=\"/editor/\"|' index.html
-  - cp -r css icons js templates index.html bower_components public/
+  - cp -r css icons img js templates index.html favicon.ico bower_components public/
   artifacts:
     paths:
     - public
