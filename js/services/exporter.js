@@ -31,6 +31,7 @@
           insertPosts(event.posts);
           insertImages(images).then(function(){
             $timeout(function(){
+              window.alert("Save the file as (or rename it to) 'interprest.sqlite'");
               var arraybuff = db.export();
               var blob = new Blob([arraybuff]);
               var url = window.URL.createObjectURL(blob);
