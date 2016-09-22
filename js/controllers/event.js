@@ -100,7 +100,7 @@
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
         $mdDialog.show({
           controller: 'EventDialogController as vm',
-          templateUrl: '/templates/event-dialog.html',
+          templateUrl: 'templates/event-dialog.html',
           parent: angular.element(document.body),
           targetEvent: ev,
           clickOutsideToClose:true,
@@ -136,7 +136,7 @@
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
         $mdDialog.show({
           controller: 'ImageCtrl as vm',
-          templateUrl: '/templates/image-dialog.html',
+          templateUrl: 'templates/image-dialog.html',
           parent: angular.element(document.body),
           targetEvent: ev,
           clickOutsideToClose:true,
