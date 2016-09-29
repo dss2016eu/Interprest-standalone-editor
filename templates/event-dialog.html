@@ -1,25 +1,25 @@
-<md-dialog aria-label="New/Edit Event"  ng-cloak>
+<md-dialog aria-label="{{ 'label.new' | i18n }} / {{ 'label.edit' | i18n }}" ng-cloak>
   <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>New/Edit Event</h2>
+        <h2>{{ 'label.new' | i18n }} / {{ 'label.edit' | i18n }}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="vm.cancel()">
-          <md-icon md-svg-icon="cancel" aria-label="Close dialog"></md-icon>
+          <md-icon md-svg-icon="cancel" aria-label="{{ 'label.cancel' | i18n }}"></md-icon>
         </md-button>
         <md-button class="md-icon-button" ng-click="vm.saveEvent()">
-          <md-icon md-svg-icon="done" aria-label="Save Event"></md-icon>
+          <md-icon md-svg-icon="done" aria-label="{{ 'label.save' | i18n }}"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
     <md-dialog-content>
       <div class="md-dialog-content">
         <md-input-container class="md-block" flex-gt-sm>
-          <label>Event Title</label>
+          <label>{{ 'form.title' | i18n }}</label>
           <input ng-model="vm.event.title">
         </md-input-container>
         <md-input-container class="md-block">
-          <label>Description</label>
+          <label>{{ 'form.description' | i18n }}</label>
           <textarea ng-model="vm.event.description" columns="1" md-maxlength="150" rows="4"></textarea>
         </md-input-container>
 
@@ -31,7 +31,7 @@
               md-search-text="vm.searchText"
               md-items="item in vm.querySearch(vm.searchText)"
               md-item-text="item"
-              placeholder="Search for a language">
+              placeholder="{{ 'label.searchLanguage' | i18n }}">
             <span md-highlight-text="vm.searchText">{{item.name}} :: {{item.nativeName}}</span>
           </md-autocomplete>
           <md-chip-template>

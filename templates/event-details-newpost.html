@@ -7,11 +7,11 @@
           <md-tab label="{{language.code.toUpperCase()}}" ng-repeat="language in vm.languages">
             <md-content class="md-padding">
               <md-input-container class="md-block" flex-gt-sm>
-                <label>Title</label>
+                <label>{{ 'form.title' | i18n }}</label>
                 <input ng-model="vm.post.data[language.code].title">
               </md-input-container>
               <md-input-container class="md-block">
-                <label>Description</label>
+                <label>{{ 'form.description' | i18n }}</label>
                 <textarea ng-model="vm.post.data[language.code].description" columns="1" md-maxlength="150" rows="4"></textarea>
               </md-input-container>
 
@@ -22,10 +22,10 @@
         <div layout="row" layout-margin>
           <div flex="60">
             <div ng-show="vm.postImage">
-              <md-button  ng-click="vm.removeImage($event);">REMOVE</md-buton>
+              <md-button  ng-click="vm.removeImage($event);">{{ 'label.delete' | i18n }}</md-buton>
             </div>
             <div ng-show="!vm.postImage">
-              <md-button  ng-click="vm.showImagesModal($event);">SELECT IMAGE</md-buton>
+              <md-button class="md-raised" ng-click="vm.showImagesModal($event);">{{ 'label.selectImage' | i18n }}</md-buton>
             </div>
           </div>
           <div flex="40" ng-if="vm.postImage">

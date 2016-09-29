@@ -22,9 +22,10 @@
     "angular-file-upload": "~2.2.0",
     "blob-util": "~1.2.0",
     "angular-ui-router": "^0.2.18",
-    "sql.js": "*"
+    "sql.js": "*",
+    "angular-sanitize": "^1.5.8"
   },
   "resolutions": {
-    "angular": "1.5.0"
+    "angular": "1.5.8"
   }
 }

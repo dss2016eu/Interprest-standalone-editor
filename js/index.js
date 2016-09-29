@@ -4,12 +4,14 @@
   angular.module("interprestStandalone", [
     'ui.router',
     'ngMaterial',
+    'ngSanitize',
     'ngAnimate',
     'indexedDB',
+    'angularFileUpload',
     'interprestStandalone.controllers',
     'interprestStandalone.models',
-    'angularFileUpload',
-    'interprestStandalone.services'
+    'interprestStandalone.services',
+    'interprestStandalone.i18n'
   ])
   .config( [
   	'$stateProvider',
@@ -79,7 +81,7 @@
       .primaryPalette('interprest');
 
       $mdIconProvider
-      .defaultIconSet("/icons/svg/avatars.svg", 128)
+      // .defaultIconSet("/icons/svg/avatars.svg", 128)
       .icon("menu"       , "icons/svg/menu.svg"        , 24)
       .icon("home"       , "icons/svg/home.svg"        , 24)
       .icon("cancel"       , "icons/svg/cancel.svg"    , 24)
@@ -92,7 +94,8 @@
       .icon("text"       , "icons/svg/text.svg"    , 24)
       .icon("more"       , "icons/svg/more_v.svg"    , 24)
       .icon("export"       , "icons/svg/export.svg"    , 24)
-      .icon("done"       , "icons/svg/done.svg"    , 24);
+      .icon("done"       , "icons/svg/done.svg"    , 24)
+      .icon("event"       , "icons/svg/event.svg"    , 24);
   	}
   ]);
 
