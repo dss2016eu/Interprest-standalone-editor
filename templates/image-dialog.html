@@ -2,10 +2,10 @@
   <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>Images</h2>
+        <h2>{{ 'label.images' | i18n }}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="vm.cancel()">
-          <md-icon md-svg-icon="cancel" aria-label="Close dialog"></md-icon>
+          <md-icon md-svg-icon="cancel" aria-label="{{ 'label.cancel' | i18n }}"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
@@ -21,38 +21,38 @@
       </div>
       <div flex="60">
         <md-input-container class="md-block">
-          <label>Image Title</label>
+          <label>{{ 'form.title' | i18n }}</label>
           <input ng-init="newTitle=vm.selectedImage.title.toString()" ng-model="newTitle">
         </md-input-group>
         <p>{{vm.selectedImage.type}}</p>
         <md-button  aria-label="Insert Image" ng-click="vm.insertImage()">
-          INSERT INTO POST
+          {{ 'label.addToPost' | i18n }}
         </md-button>
         <md-button  aria-label="Delete Image" ng-click="vm.selectedImage.delete();vm.selectedImage=null;">
-          DELETE
+          {{ 'label.delete' | i18n }}
         </md-button>
         <md-button  aria-label="Save Image" ng-click="vm.selectedImage.title=newTitle;vm.selectedImage.save()">
-          SAVE
+          {{ 'label.save' | i18n }}
         </md-button>
-        <md-button ng-click="vm.selectedImage=null;">CANCEL</md-button>
+        <md-button ng-click="vm.selectedImage=null;">{{ 'label.cancel' | i18n }}</md-button>
       </div>
     </div>
 
 
       <div>
         <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab label="Upload">
+          <md-tab label="{{ 'label.upload' | i18n }}">
             <md-content class="md-padding">
               <input ng-hide="vm.uploader.queue.length" type="file" nv-file-select="" uploader="vm.uploader" />
               Max 200KB
               <md-input-container ng-show="vm.uploader.queue.length" class="md-block" flex-gt-sm>
-                <label>Image Title</label>
+                <label>{{ 'form.title' | i18n }}</label>
                 <input ng-model="vm.newImage.title">
                 <md-button  aria-label="Save Image" ng-click="vm.saveImage()">
-                  SAVE
+                  {{ 'label.save' | i18n }}
                 </md-button>
                 <md-button  aria-label="Cancel" ng-click="vm.cancelImage()">
-                  CANCEL
+                  {{ 'label.cancel' | i18n }}
                 </md-button>
               </md-input-container>
 
@@ -65,7 +65,7 @@
 
             </md-content>
           </md-tab>
-          <md-tab label="Gallery">
+          <md-tab label="{{ 'label.gallery' | i18n }}">
             <md-content class="md-padding">
               <md-grid-list
               md-cols-xs="4" md-cols-sm="4" md-cols-md="4" md-cols-gt-md="6"

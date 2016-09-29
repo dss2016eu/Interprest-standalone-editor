@@ -1,10 +1,10 @@
 <div layout="column" flex layout-fill ng-cloak>
     <md-toolbar  class="md-primary md-hue-1" md-scroll-shrink>
       <div class="md-toolbar-tools">
-        My Events
+        {{ 'label.events' | i18n }}
         <span flex></span>
         <md-button  aria-label="New Event" ng-click="vm.newEvent($event)">
-         NEW
+         {{ 'label.new' | i18n }}
        </md-button>
       </div>
     </md-toolbar>

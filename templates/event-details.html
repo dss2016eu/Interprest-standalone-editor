@@ -13,20 +13,20 @@
           <md-menu-item>
             <md-button ng-click="vm.editEvent($event)">
               <md-icon md-svg-icon="edit" md-menu-align-target></md-icon>
-              Edit
+              {{ 'label.edit' | i18n }}
             </md-button>
           </md-menu-item>
           <md-menu-item>
             <md-button ng-click="vm.deleteEvent()">
               <md-icon md-svg-icon="delete"></md-icon>
-              Delete
+              {{ 'label.delete' | i18n }}
             </md-button>
           </md-menu-item>
           <md-menu-divider></md-menu-divider>
           <md-menu-item>
             <md-button ng-click="vm.exportEvent()">
               <md-icon md-svg-icon="export"></md-icon>
-              Export
+              {{ 'label.export' | i18n }}
             </md-button>
           </md-menu-item>
         </md-menu-content>
@@ -39,10 +39,10 @@
       <div layout="row" layout-margin>
         <div flex="60">
           <div ng-show="vm.eventImage">
-            <md-button  ng-click="vm.removeImage($event);">REMOVE</md-buton>
+            <md-button  ng-click="vm.removeImage($event);">{{ 'label.delete' | i18n }}</md-buton>
           </div>
           <div ng-show="!vm.eventImage">
-            <md-button  ng-click="vm.showImagesModal($event);">SELECT IMAGE</md-buton>
+            <md-button class="md-raised"  ng-click="vm.showImagesModal($event);">{{ 'label.selectImage' | i18n }}</md-buton>
           </div>
         </div>
         <div flex="40" ng-if="vm.eventImage">
@@ -75,21 +75,20 @@
 
 <md-toolbar  class="md-primary md-hue-1" md-scroll-shrink>
   <div class="md-toolbar-tools">
-    Posts: {{vm.showingPostList ? 'List':''}} {{(!vm.showingPostList&&vm.currentPost) ? 'Edit':''}} {{(!vm.showingPostList&&!vm.currentPost) ? 'New':''}}
+    <span ng-show="vm.showingPostList">{{'label.list' | i18n }}</span>
+    <span ng-show="!vm.showingPostList&&vm.currentPost">{{ 'label.edit' | i18n }}</span>
+    <span ng-show="!vm.showingPostList&&!vm.currentPost">{{ 'label.new' | i18n }}</span>
     <span flex></span>
-    <md-button ng-show="vm.showingPostList"  aria-label="Posts List" ng-click="vm.posts($event)">
-      <md-icon md-svg-icon="menu"></md-icon>
-    </md-button>
-    <md-button ng-show="vm.showingPostList"  aria-label="New Post" ng-click="vm.newPost($event)">
+    <md-button ng-show="vm.showingPostList"  aria-label="{{ 'label.new' | i18n }}" ng-click="vm.newPost($event)">
       <md-icon md-svg-icon="add"></md-icon>
     </md-button>
-    <md-button ng-hide="vm.showingPostList || !vm.currentPost.id" class="md-warn"  aria-label="Delete" ng-click="vm.deletePost()">
+    <md-button ng-hide="vm.showingPostList || !vm.currentPost.id" class="md-warn"  aria-label="{{ 'label.delete' | i18n }}" ng-click="vm.deletePost()">
       <md-icon md-svg-icon="delete"></md-icon>
     </md-button>
-    <md-button ng-hide="vm.showingPostList" class="md-warn"  aria-label="Cancel" ng-click="vm.cancel()">
+    <md-button ng-hide="vm.showingPostList" class="md-warn"  aria-label="{{ 'label.cancel' | i18n }}" ng-click="vm.cancel()">
       <md-icon md-svg-icon="cancel"></md-icon>
     </md-button>
-    <md-button ng-hide="vm.showingPostList"  aria-label="Save" ng-click="vm.savePost()">
+    <md-button ng-hide="vm.showingPostList"  aria-label="{{ 'label.save' | i18n }}" ng-click="vm.savePost()">
       <md-icon md-svg-icon="done"></md-icon>
     </md-button>
 
