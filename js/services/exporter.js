@@ -9,11 +9,13 @@
     'Image',
     '$q',
     '$timeout',
+    '$window',
     function Exporter(
       Event,
       Image,
       $q,
-      $timeout
+      $timeout,
+      $window
     ){
 
       function exportEvent(eventId){
@@ -31,13 +33,10 @@
           insertPosts(event.posts);
           insertImages(images).then(function(){
             $timeout(function(){
-              window.alert("Save the file as (or rename it to) 'interprest.sqlite'");
               var arraybuff = db.export();
               var blob = new Blob([arraybuff]);
-              var url = window.URL.createObjectURL(blob);
-              window.location = url;
+              $window.saveAs(blob, "interprest.sqlite");
               db.close();
-              window.URL.revokeObjectURL(url);
             }, 0);
           });
 
