@@ -1,12 +1,12 @@
 {
-  "name": "standalone",
+  "name": "interprest-editor",
   "authors": [
     "jimakker <jimakker@talaios.net>"
   ],
   "description": "",
   "main": "",
   "moduleType": [],
-  "license": "MIT",
+  "license": "GPLv3",
   "homepage": "",
   "ignore": [
     "**/.*",
